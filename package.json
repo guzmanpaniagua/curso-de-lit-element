@@ -1,0 +1,13 @@
+{
+  "name": "js-hx4xbw",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@webcomponents/custom-elements": "^1.2.4",
+    "lit-element": "2.0.1",
+    "pwa-helpers": "0.9.1",
+    "regexparam": "^1.2.1",
+    "rx-dom": "^7.0.3",
+    "rxjs": "6.4.0"
+  }
+}
