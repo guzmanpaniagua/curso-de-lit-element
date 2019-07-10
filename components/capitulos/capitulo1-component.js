@@ -55,10 +55,16 @@ class Capitulo1Component extends LitElement {
       </div>
 
       <p>Este es el aspecto que tiene nuestro componente:</p>
+      <br>
+ 
+        <img class="card-img-top"  src="https://raw.githubusercontent.com/guzmanpaniagua/curso-de-lit-element/master/assets/001-basic-component-result.jpg" alt="">
+   
+
+      <br>
 
 
+      <p>stackblitz es una pagina que hace de “editor de código” online, pones alli el html, el js y el css y vas viendo el resultado según vas haciendo los cambios, ademas tienes el boton de fork, que sirve para hacerte una copia y cambiar lo que necesites sin afectar al código original.</p>
 
-<br>
       <h4>Empezando sencillo (un componente básico):</h4>
       <p></p>
 
