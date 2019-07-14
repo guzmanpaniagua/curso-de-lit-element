@@ -65,10 +65,63 @@ class Capitulo1Component extends LitElement {
 
       <p>stackblitz es una pagina que hace de “editor de código” online, pones alli el html, el js y el css y vas viendo el resultado según vas haciendo los cambios, ademas tienes el boton de fork, que sirve para hacerte una copia y cambiar lo que necesites sin afectar al código original.</p>
 
-      <h4>Empezando sencillo (un componente básico):</h4>
-      <p></p>
+      <h4>Analisis de un componente básico:</h4>
+      <p>El primer fichero que vamos a mirar es el index.ts, el tipo de proyecto elegido es de tipo typescript, puedes hacer lit element con y sin typescript, en este caso no lo usaremos pero nos beneficiaremos de la compilacion del codigo para que el componente de ejemplo funcione en diferentes navegadores</p>
 
-        `
+      <pre><code>
+      import './style.css';
+      import './polyfills.js';
+      import './basic-element.js';
+      </code><pre>
+
+      <p>Con el codigo de arriba conseguimos importar los estilos, los polyfills y nuestro componente litelement.</p>
+
+      <p>Lit element hace uso de los modulos de javascript en vez de los html imports de polymer, los modulos de javascript funcionan en la mayoria de los navegadores modernos, pero para dar soporte a navegadores antiguos necesitaremos de transformar el codigo antes de mandarlo a los navegadores, usando babel, typescript u otros.</p>
+
+      
+      <p>analizaremos el fichero style.css.</p>
+
+      <pre><code>
+      body {
+        padding: 10px;
+       }
+       </code><pre>
+
+       <p>el codigo de este fichero es muy sencillo, lo imortante de este fichero es que podemos poner css que sea para todo nuestro proyecto</p>
+
+
+      <p>analizaremos el fichero ./polyfills.js</p>
+
+      <pre><code>
+          import '@webcomponents/custom-elements';
+          import '@webcomponents/custom-elements/src/native-shim';
+       </code><pre>
+
+      <p>en este fichero importamos los diferentes polyfills que queremos que esten disponibles en nuestro proyecto, utilizamos modulos de javascript, y es importante que esten declarados ocmo dependencias del proyecto.</p>
+
+      <div class="card">
+         <p>en este ejemplo las dependencias necesarias ya estan importadas, si haces click en el panel DEPENDENCIES de el sidebar de la izquierdas veras que hemos puesto como dependencias el modulo de polyfils y la propia libreria de lit element, pero podrias importar lo que necesites, desde librerias como Axios a dramworks de css como bootstrap</p>
+      </div>
+
+      <p>analizaremos el fichero ./package.json</p>
+      
+      <pre><code>
+        {
+          "name": "lit-element-basic-example",
+          "version": "0.0.0",
+          "private": true,
+          "dependencies": {
+            "@webcomponents/custom-elements": "^1.2.4",
+            "lit-element": "^2.1.0"
+          }
+        }
+      </code><pre>
+
+      <p>este fichero lo utiliza stackblizt para mantener las dependencias que hemos visto visualmente en la seccion del sidebar anteriormente, tambien puedes cambiarlo aqui a mano si te es mas comodo</p>
+
+      <p>stackblizt tiene una aproximacion agresiva a la hora de gestionar los modulos y las dependencias, tiene como gran ventaja que es mas rapido que en local descargarte todas las dependencias, y como desventaja que cosas como usar ficheros de imagenes o json se hace un poco mas complido.</p>
+
+    `
   }
 }
 // Register the new element with the browser.
