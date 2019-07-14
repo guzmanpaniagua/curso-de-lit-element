@@ -220,11 +220,13 @@ class Capitulo1Component extends LitElement {
         </code></pre>
 
         <p>por ultimo para convertir tu clase en un tag qu ese pueda utilizar en el html, se define como elemento custom indicando el tag que va a tener, pueder mirar en el html, como usamos el tag y como le pasamos un valor a la propiedad name.</p>
-
+        <br> 
+        <br>
+        <br>
         <h3>Ejercicio de practica</h6>
 
         <p>abre el siguinete componente en stackblizt:</p>
-
+        <br>
         <div class="card">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -234,12 +236,12 @@ class Capitulo1Component extends LitElement {
             </li>
           </ul>
         </div>
-
+        <br>
         <p>es  un componente muy parecido al anterior, pero en vez de usar los estilos hardcodeados en el componente, utilizamos una libreria como bootstrap para no tener que preocuparnos del look and feel.</p>
        
         <p>fijate que en el index.html hemos puesto bootstrap desde un cdn.</p>
         <pre><code>
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+          &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;&gt;
         </code></pre>
 
         <p>y en el componente hemos puesto la funcion de lit element que indica que no vamos a usar shadowdom, por lo que podremos usar css standard en nuestro componente.</p>
@@ -253,7 +255,7 @@ class Capitulo1Component extends LitElement {
         <p>pulsa el boton de fork para tener tu propia copia del componente.</p>
 
         <p>modifica el componente para que tenga varias propiedades mas.</p>
-
+        <br>
         <div class="card">
           <ul class="list-group list-group-flush">
             <li class="list-group-item"> First name: Guzmán
@@ -271,19 +273,21 @@ class Capitulo1Component extends LitElement {
           </ul>
         </div>
       
-
+        <br>
         <p>tiempo estimado: 5 minutos.</p>
         
         <p>resultado</p>
+        <br>
         <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <a href="https://stackblitz.com/edit/003-lit-element-basic-component-exercise-1-finished?file=basic-element.js" target="blank">
-            https://stackblitz.com/edit/003-lit-element-basic-component-exercise-1-finished</a>
-          </li>
-        </ul>
-      </div>
-        
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <a href="https://stackblitz.com/edit/003-lit-element-basic-component-exercise-1-finished?file=basic-element.js" target="blank">
+              https://stackblitz.com/edit/003-lit-element-basic-component-exercise-1-finished</a>
+            </li>
+          </ul>
+        </div>
+        <br>
+        <br>
         
 
     `
