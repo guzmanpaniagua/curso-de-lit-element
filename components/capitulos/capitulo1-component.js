@@ -146,7 +146,7 @@ class Capitulo1Component extends LitElement {
 
       <h5>analizaremos el fichero ./basic-element.js</h5>
       
-      <h6>importacion de dependencias</h6>
+      <h6><b>importacion de dependencias</b></h6>
 
       <pre><code>
         import { LitElement, html, css } from 'lit-element';
@@ -154,7 +154,7 @@ class Capitulo1Component extends LitElement {
 
       <p>la primera linea nos sirve para importar un modulo de javascript para utilizarlo en nuestro componente, en este ejemplo, traemos de la libreria de lit element, la clase de la que vamos a estender nuestro componente. la funcion html que permite convertir una cadena de texto en una template y la funcion css que permite convertir una cadena de texto con estilos dentro en css que podamos inyectar en nuestro componente </p>
   
-      <h6>definicion de clases</h6>
+      <h6><b>definicion de clases</b></h6>
       <pre><code>
         class BasicElement extends LitElement {
           ...
@@ -163,7 +163,7 @@ class Capitulo1Component extends LitElement {
 
       <p>los componentes hechos con lit element son clases, aqui creamos una clase BasicElement que extiende de LitElement, de forma que tendremos "gratis" funciones como render para pinatr html, metodos como  get properties para disponer de binding y varias cosas mas muy utiles</p>
 
-      <h6>definicion de propiedades</h6>
+      <h6><b>definicion de propiedades</b></h6>
 
       <pre><code>
         static get properties() {
@@ -176,7 +176,7 @@ class Capitulo1Component extends LitElement {
       <p>el metodo estatico  get properties nos permite definir las propiedades que nuestro componente va a tener, si no definimos las propiedades, las capacidades de binding de lit element no estaran disponibles, es decir si ponemos atributos a nuestro componente, pero no definimos la propiedad, aunque usemos ese nombre de atributo en el componente, no funcionara.</p>
 
       
-      <h6>definicion de estilos de componente</h6>
+      <h6><b>definicion de estilos de componente</b></h6>
       <pre><code>
         static get styles() {
           return css\`
@@ -198,28 +198,94 @@ class Capitulo1Component extends LitElement {
 
         <p>el shadow dom es un standard, pero usarlo o no es una decision compleja, por mi experiencia si lo sabes usar muy bien puede ayudar, pero en la mayoria de proyectos, se usa mal y yo personalmente prefiero no usarlo, al final del curso en el contenido extra pondre una seccion dedicada a los pros y los contras para que puedas tomar una decision informada sobre si usarlo o no.</p>
 
-        <h6>definicion de template</h6>
+        <h6><b>definicion de template</b></h6>
         <pre><code>
           render(){
             return html \`
-              <div>
-                <h4 class="defaultSpace primary-block">Basic component by </h4>
-                <ul>
-                  <li class="defaultSpace">\${this.name}</li>
-                </ul>
-              </div>
+            &lt;div&gt;
+              &lt;h4 class=&quot;defaultSpace primary-block&quot;&gt;Basic component by &lt;/h4&gt;
+              &lt;ul&gt;
+                &lt;li class=&quot;defaultSpace&quot;&gt;\${this.name}&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
             \`;
           }
         </code></pre>
 
         <p>Lit element te ofrece el metodo render, dentro de el tu pones una template con el html que quieres que pinte, puedes usar las javascript templates para definir propiedades que quieres que se utilize y que seran remplazadas por sus valores, ademas cada vez que una variable que esta definida en el metodo rende cambia, este se llamara de nuevo y se refrescara lo que se ve en pantalla.</p>
 
-        <h6>registro del componente</h6>
+        <h6><b>registro del componente</b></h6>
         <pre><code>
           customElements.define('basic-element', BasicElement);
         </code></pre>
 
         <p>por ultimo para convertir tu clase en un tag qu ese pueda utilizar en el html, se define como elemento custom indicando el tag que va a tener, pueder mirar en el html, como usamos el tag y como le pasamos un valor a la propiedad name.</p>
+
+        <h3>Ejercicio de practica</h6>
+
+        <p>abre el siguinete componente en stackblizt:</p>
+
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <a href="https://stackblitz.com/edit/002-lit-element-basic-component-bootstrap?file=basic-element.js" target="blank">
+              https://stackblitz.com/edit/002-lit-element-basic-component-bootstrap
+                </a>
+            </li>
+          </ul>
+        </div>
+
+        <p>es  un componente muy parecido al anterior, pero en vez de usar los estilos hardcodeados en el componente, utilizamos una libreria como bootstrap para no tener que preocuparnos del look and feel.</p>
+       
+        <p>fijate que en el index.html hemos puesto bootstrap desde un cdn.</p>
+        <pre><code>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        </code></pre>
+
+        <p>y en el componente hemos puesto la funcion de lit element que indica que no vamos a usar shadowdom, por lo que podremos usar css standard en nuestro componente.</p>
+
+        <pre><code>
+          createRenderRoot() {
+            return this;
+          }
+        </code></pre>
+ 
+        <p>pulsa el boton de fork para tener tu propia copia del componente.</p>
+
+        <p>modifica el componente para que tenga varias propiedades mas.</p>
+
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> First name: Guzmán
+            </li>
+            <li class="list-group-item">Age: 42
+            </li>
+            <li class="list-group-item">Salary: not enougth
+            </li>
+            <li class="list-group-item"> Country: Spain
+            </li>
+            <li class="list-group-item">Employee: true
+            </li>
+            <li class="list-group-item">Description:Guzmán is a good, strong, tall, smart and modest person
+            </li>
+          </ul>
+        </div>
+      
+
+        <p>tiempo estimado: 5 minutos.</p>
+        
+        <p>resultado</p>
+        <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="https://stackblitz.com/edit/003-lit-element-basic-component-exercise-1-finished?file=basic-element.js" target="blank">
+            https://stackblitz.com/edit/003-lit-element-basic-component-exercise-1-finished</a>
+          </li>
+        </ul>
+      </div>
+        
+        
+
     `
   }
 }
