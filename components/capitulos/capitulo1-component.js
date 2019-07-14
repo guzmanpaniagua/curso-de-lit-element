@@ -56,9 +56,9 @@ class Capitulo1Component extends LitElement {
 
       <p>Este es el aspecto que tiene nuestro componente:</p>
       <br>
- 
+      <div class="card">
         <img class="card-img-top"  src="https://raw.githubusercontent.com/guzmanpaniagua/curso-de-lit-element/master/assets/001-basic-component-result.jpg" alt="">
-   
+      </div>
 
       <br>
 
@@ -66,6 +66,8 @@ class Capitulo1Component extends LitElement {
       <p>stackblitz es una pagina que hace de “editor de código” online, pones alli el html, el js y el css y vas viendo el resultado según vas haciendo los cambios, ademas tienes el boton de fork, que sirve para hacerte una copia y cambiar lo que necesites sin afectar al código original.</p>
 
       <h4>Analisis de un componente básico:</h4>
+
+      <h5> el fichero index.ts.</h5>
       <p>El primer fichero que vamos a mirar es el index.ts, el tipo de proyecto elegido es de tipo typescript, puedes hacer lit element con y sin typescript, en este caso no lo usaremos pero nos beneficiaremos de la compilacion del codigo para que el componente de ejemplo funcione en diferentes navegadores</p>
 
       <pre><code>
@@ -79,7 +81,7 @@ class Capitulo1Component extends LitElement {
       <p>Lit element hace uso de los modulos de javascript en vez de los html imports de polymer, los modulos de javascript funcionan en la mayoria de los navegadores modernos, pero para dar soporte a navegadores antiguos necesitaremos de transformar el codigo antes de mandarlo a los navegadores, usando babel, typescript u otros.</p>
 
       
-      <p>analizaremos el fichero style.css.</p>
+      <h5>analizaremos el fichero style.css.</h5>
 
       <pre><code>
       body {
@@ -90,7 +92,7 @@ class Capitulo1Component extends LitElement {
        <p>el codigo de este fichero es muy sencillo, lo imortante de este fichero es que podemos poner css que sea para todo nuestro proyecto</p>
 
 
-      <p>analizaremos el fichero ./polyfills.js</p>
+      <h5>analizaremos el fichero ./polyfills.js</h5>
 
       <pre><code>
           import '@webcomponents/custom-elements';
@@ -99,11 +101,13 @@ class Capitulo1Component extends LitElement {
 
       <p>en este fichero importamos los diferentes polyfills que queremos que esten disponibles en nuestro proyecto, utilizamos modulos de javascript, y es importante que esten declarados ocmo dependencias del proyecto.</p>
 
-      <div class="card">
-         <p>en este ejemplo las dependencias necesarias ya estan importadas, si haces click en el panel DEPENDENCIES de el sidebar de la izquierdas veras que hemos puesto como dependencias el modulo de polyfils y la propia libreria de lit element, pero podrias importar lo que necesites, desde librerias como Axios a dramworks de css como bootstrap</p>
+      <div class="jumbotron my-4">
+        <div class="card">
+          <p class="lead">en este ejemplo las dependencias necesarias ya estan importadas, si haces click en el panel DEPENDENCIES de el sidebar de la izquierdas veras que hemos puesto como dependencias el modulo de polyfils y la propia libreria de lit element, pero podrias importar lo que necesites, desde librerias como Axios a dramworks de css como bootstrap</p>
+        </div>
       </div>
 
-      <p>analizaremos el fichero ./package.json</p>
+      <h5>analizaremos el fichero ./package.json</h5>
       
       <pre><code>
         {
@@ -121,7 +125,7 @@ class Capitulo1Component extends LitElement {
 
       <p>stackblizt tiene una aproximacion agresiva a la hora de gestionar los modulos y las dependencias, tiene como gran ventaja que es mas rapido que en local descargarte todas las dependencias, y como desventaja que cosas como usar ficheros de imagenes o json se hace un poco mas complido.</p>
 
-      <p>analizaremos el fichero ./index.html</p>
+      <h5>analizaremos el fichero ./index.html</h5>
 
       <pre><code>
         &lt;html lang=&quot;en&quot;&gt;
@@ -140,6 +144,82 @@ class Capitulo1Component extends LitElement {
 
       <p>el index.html es la pagina principal de la aplicacion, en el ejemplo tenemos puesta una etiqueta de nuestro componente basico, para que se reperesente en la ventana de reultado y poder verlo</p>
 
+      <h5>analizaremos el fichero ./basic-element.js</h5>
+      
+      <h6>importacion de dependencias</h6>
+
+      <pre><code>
+        import { LitElement, html, css } from 'lit-element';
+      </code></pre>
+
+      <p>la primera linea nos sirve para importar un modulo de javascript para utilizarlo en nuestro componente, en este ejemplo, traemos de la libreria de lit element, la clase de la que vamos a estender nuestro componente. la funcion html que permite convertir una cadena de texto en una template y la funcion css que permite convertir una cadena de texto con estilos dentro en css que podamos inyectar en nuestro componente </p>
+  
+      <h6>definicion de clases</h6>
+      <pre><code>
+        class BasicElement extends LitElement {
+          ...
+        }
+      </code></pre>
+
+      <p>los componentes hechos con lit element son clases, aqui creamos una clase BasicElement que extiende de LitElement, de forma que tendremos "gratis" funciones como render para pinatr html, metodos como  get properties para disponer de binding y varias cosas mas muy utiles</p>
+
+      <h6>definicion de propiedades</h6>
+
+      <pre><code>
+        static get properties() {
+          return {
+            name: { type: String }
+          };
+        }
+      </code></pre>
+
+      <p>el metodo estatico  get properties nos permite definir las propiedades que nuestro componente va a tener, si no definimos las propiedades, las capacidades de binding de lit element no estaran disponibles, es decir si ponemos atributos a nuestro componente, pero no definimos la propiedad, aunque usemos ese nombre de atributo en el componente, no funcionara.</p>
+
+      
+      <h6>definicion de estilos de componente</h6>
+      <pre><code>
+        static get styles() {
+          return css\`
+            .primary-block {
+              background: var(--primary-color, #4c50af);
+              color: white;
+            }
+            .defaultSpace {
+              padding: var(--medium, 16px);
+              width: 100%;
+              border: 0;
+              box-sizing: border-box;
+            }
+          \`;
+        }
+        </code></pre>
+
+        <p>el metodo estatico  get styles nos permite definirlos estilos que usaremos en nuestro componente, cosa que generalmente es mala idea, el shadow dom es una feature del standad que te da encapsulacion, lo que puede parecer bueno, pero desgraciadamente conduce a que resuelvas una y otra vez los mimsos porblemas de estilos en muchos componentes, en vez de una unica vez.</p>
+
+        <p>el shadow dom es un standard, pero usarlo o no es una decision compleja, por mi experiencia si lo sabes usar muy bien puede ayudar, pero en la mayoria de proyectos, se usa mal y yo personalmente prefiero no usarlo, al final del curso en el contenido extra pondre una seccion dedicada a los pros y los contras para que puedas tomar una decision informada sobre si usarlo o no.</p>
+
+        <h6>definicion de template</h6>
+        <pre><code>
+          render(){
+            return html \`
+              <div>
+                <h4 class="defaultSpace primary-block">Basic component by </h4>
+                <ul>
+                  <li class="defaultSpace">\${this.name}</li>
+                </ul>
+              </div>
+            \`;
+          }
+        </code></pre>
+
+        <p>Lit element te ofrece el metodo render, dentro de el tu pones una template con el html que quieres que pinte, puedes usar las javascript templates para definir propiedades que quieres que se utilize y que seran remplazadas por sus valores, ademas cada vez que una variable que esta definida en el metodo rende cambia, este se llamara de nuevo y se refrescara lo que se ve en pantalla.</p>
+
+        <h6>registro del componente</h6>
+        <pre><code>
+          customElements.define('basic-element', BasicElement);
+        </code></pre>
+
+        <p>por ultimo para convertir tu clase en un tag qu ese pueda utilizar en el html, se define como elemento custom indicando el tag que va a tener, pueder mirar en el html, como usamos el tag y como le pasamos un valor a la propiedad name.</p>
     `
   }
 }
