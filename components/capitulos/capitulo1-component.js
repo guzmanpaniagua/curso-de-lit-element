@@ -276,7 +276,14 @@ class Capitulo1Component extends LitElement {
         <br>
         <p>tiempo estimado: 5 minutos.</p>
         
-        <p>resultado</p>
+        <p>resultado:</p>
+
+        <br>
+        <div class="card">
+          <img class="card-img-top"  src="https://raw.githubusercontent.com/guzmanpaniagua/curso-de-lit-element/master/assets/003-basic-component-exercise-1-finished.jpg" alt="">
+        </div>
+  
+        <br>
         <br>
         <div class="card">
           <ul class="list-group list-group-flush">
