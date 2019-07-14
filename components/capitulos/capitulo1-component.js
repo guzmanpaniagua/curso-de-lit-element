@@ -72,7 +72,7 @@ class Capitulo1Component extends LitElement {
       import './style.css';
       import './polyfills.js';
       import './basic-element.js';
-      </code><pre>
+      </code></pre>
 
       <p>Con el codigo de arriba conseguimos importar los estilos, los polyfills y nuestro componente litelement.</p>
 
@@ -85,7 +85,7 @@ class Capitulo1Component extends LitElement {
       body {
         padding: 10px;
        }
-       </code><pre>
+       </code></pre>
 
        <p>el codigo de este fichero es muy sencillo, lo imortante de este fichero es que podemos poner css que sea para todo nuestro proyecto</p>
 
@@ -95,7 +95,7 @@ class Capitulo1Component extends LitElement {
       <pre><code>
           import '@webcomponents/custom-elements';
           import '@webcomponents/custom-elements/src/native-shim';
-       </code><pre>
+       </code></pre>
 
       <p>en este fichero importamos los diferentes polyfills que queremos que esten disponibles en nuestro proyecto, utilizamos modulos de javascript, y es importante que esten declarados ocmo dependencias del proyecto.</p>
 
@@ -115,11 +115,30 @@ class Capitulo1Component extends LitElement {
             "lit-element": "^2.1.0"
           }
         }
-      </code><pre>
+      </code></pre>
 
       <p>este fichero lo utiliza stackblizt para mantener las dependencias que hemos visto visualmente en la seccion del sidebar anteriormente, tambien puedes cambiarlo aqui a mano si te es mas comodo</p>
 
       <p>stackblizt tiene una aproximacion agresiva a la hora de gestionar los modulos y las dependencias, tiene como gran ventaja que es mas rapido que en local descargarte todas las dependencias, y como desventaja que cosas como usar ficheros de imagenes o json se hace un poco mas complido.</p>
+
+      <p>analizaremos el fichero ./index.html</p>
+
+      <pre><code>
+        &lt;html lang=&quot;en&quot;&gt;
+        &lt;head&gt;
+          &lt;meta charset=&quot;UTF-8&quot;&gt;
+          &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+          &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+          
+          &lt;title&gt;001 lit element basic component&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+          &lt;basic-element name=&quot;Guzman&quot;&gt;&lt;/basic-element&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+      </code></pre>
+
+      <p>el index.html es la pagina principal de la aplicacion, en el ejemplo tenemos puesta una etiqueta de nuestro componente basico, para que se reperesente en la ventana de reultado y poder verlo</p>
 
     `
   }
