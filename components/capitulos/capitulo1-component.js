@@ -294,8 +294,24 @@ class Capitulo1Component extends LitElement {
           </ul>
         </div>
         <br>
+        <h5> Cosas para recordar.</h5>
         <br>
-        
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Lit element te deja hacer webcomponents de forma rapida
+            </li>
+            <li class="list-group-item">Utilizamos javascript string interpolation para construir las templates
+            </li>
+            <li class="list-group-item">Si quieres pasar propiedades y usar binding tienes que definir las propiedades, si no no se pintaran los valores aunque pases los atributos al tag del componente
+            </li>
+            <li class="list-group-item">Puedes poner los estilos dentro de tu componente, pero al final repites codigo entre componentes.
+            </li>
+            <li class="list-group-item">El shadow dom es una opcion, pero no es obligatorio, de hecho es preferible no usarlo en la mayoria de los casos
+            </li>
+            <li class="list-group-item">Puedes usar librerias como axios o bootstrap de manera sencilla con lit.
+            </li>
+          </ul>
+        </div>
 
     `
   }
