@@ -65,7 +65,7 @@ class Capitulo2Component extends LitElement {
       </div>
       <br>
       <br>
-      <h4>Ejemplo practico</h4>
+      <h4>Ejemplo practico 1: extraer un componente</h4>
       <br>
       <p>Manos a la obra, vamos a ver un ejemplo de componente lit element que es demasiado grande y vamos a generar otros componentes, para tener algo mas manejable.</p>
       <br>
@@ -79,6 +79,7 @@ class Capitulo2Component extends LitElement {
         </ul>
       </div>
       <br>
+
       <p>Supon que te quieres hacer un Curriculum online, y aprovechar para aprender lit element todo en uno, nos abrimos stackblizt, duplicamos el ejemplo de lit anterior y como somos desarrolladores, no maquetadores, arrastramos unos cuantos componentes de bootstrap para hacer un proptotipado mas o menos rapido de lo que vamos ha hacer.</p>
 
       <p>Si te fijas en el resultado vemos que rapidamente el html se hace demasiado grande y dificil de mantener, realmente la unica diferencia con el ejemplo basico es que hay mucho mas html, funcionalidad aqui poca.</p>
@@ -89,7 +90,7 @@ class Capitulo2Component extends LitElement {
       <div class="card">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <a href="hhttps://stackblitz.com/edit/basic-example-lit-element-with-bootstrap-nested?file=my-element.js" target="blank">
+            <a href="https://stackblitz.com/edit/basic-example-lit-element-with-bootstrap-nested?file=my-element.js" target="blank">
               Ejemplo de pagina con bootstrap con componentes
             </a>
           </li>
@@ -99,7 +100,7 @@ class Capitulo2Component extends LitElement {
 
       <p>En el ejemplo de el enlace de arriba veras que que creado una carpeta componentes y dentro he generado ejemplos de componentes, el mas basico es el jumbotron, un componente lit sin aspiraciones, en el que simplemente he copiado y pegado el html.</p>
 
-      <br>
+  
       <pre><code>
       // Import the LitElement base class and html helper function
       import { LitElement, html } from 'lit-element';
@@ -110,7 +111,7 @@ class Capitulo2Component extends LitElement {
           return this;
         }
         render(){
-          return html`
+          return html\`
       
             &lt;!-- Jumbotron Header --&gt;
             &lt;header class=&quot;jumbotron my-4&quot;&gt;
@@ -119,28 +120,59 @@ class Capitulo2Component extends LitElement {
               &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Call to action!&lt;/a&gt;
             &lt;/header&gt;
       
-          `;
+          \`;
         }
       }
       // Register the new element with the browser.
       customElements.define('jumbotron-element', JumbotronElement);
       </code></pre>
-      <br>
+
       <p>Destacar que he utilizado createRenderRoot para evitar el molesto shadow dom y que funcionen los estilos de bootstrap.</p>
 
       <p>Podriamos poner el titulo o el texto o los botones como propiedades, pero para este ejemplo basico es suficinete.</p>
 
       <p>En el componente MyElement, he utilizado un import para traes el componente unevo y poder utilizarlo </p>
-      <br>
+
       <pre><code>
         import './components/jumbotron-element.js';
       </code></pre>
       <br>
+
       <p>y he remplazado el trozo de html que he puesto en el componente por la nueva tag </p>
-      <br>
+  
       <pre><code>
         &lt;jumbotron-element&gt;&lt;/jumbotron-element&gt;
       </code></pre>
+
+            
+      <p>Estos pasos que hemos realizado aqui no son mas que un extraxtion patern, que es una de las tecnicas de refactor mas abituales.</p>
+
+      <br>
+      <h4>Ejemplo practico 2, doble anidacion</h4>
+      <br>
+
+      <p>De forma analoga a como hemos hecho con el jumbotron, se ha hecho con las cards.</p>
+      <br>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="https://stackblitz.com/edit/basic-example-lit-element-with-bootstrap-nested?file=components%2Fcard-element.js" target="blank">
+              Card element
+            </a>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p>Pero en este caso en vez de usarlo directamente en el componente principal, hemos generado un segundo componente llamado lista de card con la intencion de que se vea que se puede de forma sencilla incluir un componente dentro de otro y dentro de otro mas.</p>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="https://stackblitz.com/edit/basic-example-lit-element-with-bootstrap-nested?file=components%2Flist-cards-element.js" target="blank">
+              List Cards element
+            </a>
+          </li>
+        </ul>
+      </div>
       <br>
     `
   }
