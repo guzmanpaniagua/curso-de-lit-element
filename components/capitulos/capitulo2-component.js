@@ -1,7 +1,5 @@
-// Import the LitElement base class and html helper function
 import { LitElement, html } from 'lit-element';
 
-// Extend the LitElement base class
 class Capitulo2Component extends LitElement {
 
   static get properties() {
@@ -174,8 +172,72 @@ class Capitulo2Component extends LitElement {
         </ul>
       </div>
       <br>
+
+      <br>
+      <h3>Ejercicio de practica</h6>
+
+      <p>Abre el siguiente componente en stackblizt:</p>
+      <br>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="https://stackblitz.com/edit/basic-example-lit-element-with-bootstrap-nested?file=my-element.js" target="blank">
+              Ejemplo de bootstrap con componentes
+            </a>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <br>
+      <p>Y realiza las siguientes acciones</p>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> Genera un nuevo componente panel
+          </li>
+          <li class="list-group-item">Importalo en el componente principal
+          </li>
+          <li class="list-group-item">Remplaza los trozos de html de panel por las nuevas etiquetas
+          </li>
+          <li class="list-group-item">Genera una nueva propiedad title
+          </li>
+          <li class="list-group-item">Pasa a cada instancia de panel un titulo distinto "Idiomas", "Cursos" y "Lenguajes de programacion"
+          </li>
+        </ul>
+      </div>
+      <br>
+      <br>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="https://stackblitz.com/edit/basic-example-lit-element-with-bootstrap-nested-solution?file=my-element.js" target="blank">
+              Ejercicio terminado
+            </a>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <br>
+      <h5> Cosas para recordar.</h5>
+      <br>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Se puede de forma sencilla utilizar unos componentes dentro de otros.
+          </li>
+          <li class="list-group-item">Cada componente crea un tag nuevo que debe de ser unico.
+          </li>
+          <li class="list-group-item">Puedes pasar valores a componentes hijos como atributos o como propiedades
+          </li>
+          <li class="list-group-item">El html no es case sensitive pero es mejor tener consistencia.
+          </li>
+          <li class="list-group-item">A veces es mejor usar slots en vez de propiedades fijas ya que los componentes quedan mas abiertos, desgraciadamente lit element no soporta slots sin shadow dom.
+          </li>
+          <li class="list-group-item">Hay alternativas a los slots para pasar html custom pero parece que la comunidad aun no decidido un ganador entre las diversas opciones.
+          </li>
+        </ul>
+      </div>
+     
     `
   }
 }
-// Register the new element with the browser.
+
 customElements.define('capitulo2-component', Capitulo2Component);

@@ -1,7 +1,5 @@
-// Import the LitElement base class and html helper function
 import { LitElement, html } from 'lit-element';
 
-// Extend the LitElement base class
 class Capitulo1Component extends LitElement {
 
   static get properties() {
@@ -225,7 +223,7 @@ class Capitulo1Component extends LitElement {
         <br>
         <h3>Ejercicio de practica</h6>
 
-        <p>abre el siguinete componente en stackblizt:</p>
+        <p>abre el siguiente componente en stackblizt:</p>
         <br>
         <div class="card">
           <ul class="list-group list-group-flush">
@@ -316,5 +314,4 @@ class Capitulo1Component extends LitElement {
     `
   }
 }
-// Register the new element with the browser.
 customElements.define('capitulo1-component', Capitulo1Component);
